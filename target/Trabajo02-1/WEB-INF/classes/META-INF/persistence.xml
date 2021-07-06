@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <!-- Define Persistence Unit -->
+  <persistence-unit name="trabajo02">
+    <jta-data-source>jdbc_trabajo02</jta-data-source>
+    <class>model.Bodega</class>
+    <class>model.Categoria</class>
+    <class>model.Inventario</class>
+    <class>model.Persona</class>
+    <class>model.Producto</class>
+    <class>model.TipoUsuario</class>
+    <properties>
+    </properties>
+  </persistence-unit>
+</persistence>

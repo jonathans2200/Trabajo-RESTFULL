@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:h="http://java.sun.com/jsf/html" lang="es">
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="keywords"
+              content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template"/>
+        <meta name="description"
+              content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"/>
+        <meta name="robots" content="noindex,nofollow"/>
+        <title>Xtreme Admin Lite Template by WrapPixel</title>
+        <link rel="canonical" href="https://www.wrappixel.com/templates/xtreme-admin-lite/" />
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="template/assets/images/favicon.png"/>
+        <!-- Custom CSS -->
+        <link href="template/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet"/>
+        <!-- Custom CSS -->
+        <link href="template/dist/css/style.min.css" rel="stylesheet"/>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        
+    <![endif]-->
+
+
+
+    </h:head>
+
+    <h:body>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+             data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+         
+            <div class="page-wrapper">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="page-breadcrumb">
+                    <div class="offset-2 row align-items-center">
+                        <div class="col-5">
+                            <h2 class="page-title">INICIO DE SESION</h2>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+                <div class="container-fluid">
+                    <!-- ============================================================== -->
+                    <!-- AQUI VA LA PRIMERA CARD -->
+                    <!-- ============================================================== -->
+                    <h:form>
+                        <div class="row offset-2">
+                            <div class="col-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="col-md-12">USUARIO</label>
+                                            <div class="col-md-12">
+                                                <h:inputText size="30" value="#{loginBean.usuario}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">PASSWORD</label>
+                                            <div class="col-md-12">
+                                                <h:inputText size="30" value="#{loginBean.contrasena}"/>
+                                            </div>
+                                        </div>
+                                        <h:commandButton class="btn btn-primary" value="INGRESAR" action="#{loginBean.validar()}" />
+                                        <a class="btn btn-primary" value="CREAR CUENTA"  href="CrearCuenta.xhtml" >CREAR CUENTA</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </h:form>
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+               
+                <!-- ============================================================== -->
+                <!-- End footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="template/assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="template/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="template/dist/js/app-style-switcher.js"></script>
+        <!--Wave Effects -->
+        <script src="template/dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="template/dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="template/dist/js/custom.js"></script>
+        <!--This page JavaScript -->
+        <!--chartis chart-->
+        <script src="template/assets/libs/chartist/dist/chartist.min.js"></script>
+        <script src="template/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+        <script src="template/dist/js/pages/dashboards/dashboard1.js"></script>
+    </h:body>
+
+</html>
