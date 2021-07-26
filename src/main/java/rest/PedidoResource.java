@@ -93,19 +93,16 @@ public class PedidoResource {
         try {
             Persona p = ejbPersona.obtenerPersona(cedula);
             if (p != null) {
-                Categoria c = new Categoria(1, "zapatos");
-                Categoria c1 = new Categoria(2, "ropa");
+                
                 Categoria c2 = new Categoria(3, "accesorios");
                 
-                Producto pro = new Producto(1, "zapatos addidas", 30.00, c);
-                Producto pro1 = new Producto(2, "blusa polo", 14.00, c1);
+              
                 Producto pro2 = new Producto(3, "gorra addidas", 15, c2);
                 Producto pro3 = new Producto(4, "gorra puma", 10, c2);
-                Pedidos ped = new Pedidos("2021/07/5", "PRUEBA2", 165.00, p, "Enviado");
+                Pedidos ped = new Pedidos("2021-07-06", "CUENCA", 45.00, p, "Enviado");
                 ejbPedido.create(ped);
-                ejbdetalle.create(new PedidoDetalle(pro, ped, 2, 60.00));
-                ejbdetalle.create(new PedidoDetalle(pro1, ped, 1, 14.00));
-                ejbdetalle.create(new PedidoDetalle(pro2, ped, 4, 60.00));
+               
+                ejbdetalle.create(new PedidoDetalle(pro2, ped, 3, 35.00));
                 ejbdetalle.create(new PedidoDetalle(pro3, ped, 1, 10.00));
                 
             }

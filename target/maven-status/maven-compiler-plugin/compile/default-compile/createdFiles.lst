@@ -13,6 +13,7 @@ ejb\BodegaFacade.class
 ejb\CategoriaFacade.class
 model\Pedidos.class
 bean\LoginBean.class
+ejb\FacturaFacade.class
 ejb\ProductoFacede.class
 ejb\PersonaFacade.class
 model\Producto.class

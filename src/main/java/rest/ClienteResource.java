@@ -5,20 +5,29 @@
  */
 package rest;
 
+import ejb.BodegaFacade;
 import ejb.CuentaFacade;
+import ejb.MovimientoFacade;
 import ejb.PersonaFacade;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Inject;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import model.Bodega;
+import model.Movimiento;
 import model.Persona;
 import model.Usuario;
 
@@ -33,6 +42,12 @@ public class ClienteResource {
     private PersonaFacade ejbpersona;
     @EJB
     private CuentaFacade ejbCuenta;
+    
+    @EJB
+    private BodegaFacade ejbBodega;
+    
+    @EJB
+    private MovimientoFacade ejbMovimiento;
 
     @GET
     @Path("/sesion")
@@ -41,7 +56,9 @@ public class ClienteResource {
 
         Usuario p = ejbpersona.obtenerUsuario(usuario, pass);
         if (p != null) {
-            return Response.ok("SE A INICIADO SESION CORRECTAMENTE").build();
+            return Response.ok("SE A INICIADO SESION CORRECTAMENTE" +p.getPropietario().getCedula()).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE").build();
             // return "INICIO DE SESION CORRECTO!";
         } else {
             return Response.status(202).entity("CLIENTE NO REGISTRADO").build();
@@ -97,5 +114,40 @@ public class ClienteResource {
             ejbCuenta.edit(u);
         }
         return Response.ok("Se a eliminado " + u.toString()).build();
+    }
+
+
+
+@GET
+    @Path("/listarBodegas/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listaBodegas() {
+
+        Jsonb jsonb = JsonbBuilder.create();
+        List<Bodega> list =new ArrayList<Bodega>();
+               list= ejbBodega.findAll();
+
+        // para evitar el error del CORS se agregan los headers
+        return Response.ok(jsonb.toJson(list))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE").build();
+    }
+
+
+@GET
+    @Path("/listarProductos/{codigo}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listaBodegas(@PathParam("codigo") Integer codigo) {
+
+        Jsonb jsonb = JsonbBuilder.create();
+        List<Movimiento> list =new ArrayList<Movimiento>();
+               list= ejbMovimiento.buscarBodega(Integer.valueOf(codigo));
+
+        // para evitar el error del CORS se agregan los headers
+        return Response.ok(jsonb.toJson(list))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE").build();
     }
 }
